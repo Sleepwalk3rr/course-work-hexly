@@ -104,6 +104,7 @@ input[type='file'] {
 h1 {
     font-weight: bold;
     font-size: 64px;
+    color: aliceblue;
 }
 
 input {
@@ -114,6 +115,7 @@ input {
     font-weight: bold;
     max-width: 617px;
     padding: 10px;
+    color: antiquewhite;
 }
 
 .main {
@@ -121,22 +123,25 @@ input {
     display: grid;
     justify-content: center;
     align-items: center;
+    
 }
 
 button {
-    color: aliceblue;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgba(red, green, blue, alpha);
     font-weight: bold;
     height: 49px;
     border-radius: 8px;
     max-width: 617px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    border: #c3c3c3 solid 1px;
+    border-color:rgba(180, 180, 180, 0.3s) ;
 }
 
 
 button:hover {
-    background-color: #565656;
+    background-color: #c3c3c3;
 }
 
 
@@ -145,5 +150,105 @@ li {
     font-weight: bold;
     display: grid;
     justify-content: center;
+    margin-top: 30px;
+    color: antiquewhite;
+}
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* Опускает видео под все элементы */
+  object-fit: cover; /* Чтобы видео не растягивалось, а заполняло экран */
+}
+
+/* Убедитесь, что у основного контента прозрачный фон */
+body {
+  margin: 0;
+  background: none;
+}
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы карточки переносились на новую строку */
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+
+ul {
+    font-family: inter;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
     margin-top: 50px;
+    color: antiquewhite;
+}
+.editButton {
+   font-family: inter;
+    color: rgb(255, 255, 255);
+    background-color: rgba(red, green, blue, alpha);
+    font-weight: bold;
+    height: 49px;
+    border-radius: 8px;
+    max-width: 617px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    border: #c3c3c3 solid 1px;
+    border-color:rgba(180, 180, 180, 0.3s) ;
+    width: 150px;
+}
+
+.deleteButton {
+    margin: 30px;
+    font-family: inter;
+    color: rgb(255, 255, 255);
+    background-color: rgba(red, green, blue, alpha);
+    font-weight: bold;
+    height: 49px;
+    border-radius: 8px;
+    max-width: 617px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    border: #c3c3c3 solid 1px;
+    border-color:rgba(180, 180, 180, 0.3s) ;
+    width: 150px;
+}
+
+.deleteButton:hover {
+      color: red;
+      transition: 0.3s;
+}
+
+.editButton:hover {
+  color: rgb(112, 255, 141);
+}
+
+.nameBook {
+  color: rgb(255, 255, 255);
+}
+
+.pagesCount {
+  color: #ffffff;
+}
+
+li {
+  margin: 3px;
+}
+
+.select {
+  color:#ffffff;
+  font-family: inter;
+  font-weight: bold;
+  position: relative;
+}
+
+
+.card {
+  border: #c3c3c3 solid 1px;
+  border-radius: 30px;
+  max-width: 617px;
 }

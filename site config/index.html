@@ -12,17 +12,27 @@
 
 </head>
 <body>
+<video autoplay muted loop id="bg-video">
+  <source src="0330.mp4" type="video/mp4">
+  Ваш браузер не поддерживает видео.
+</video>
     <div class="main" id="main1">   
     <h1>Трекер чтения книг</h1>
     <input type="text" placeholder="Название книги..." class="inputName" id="input-name">
-    <input type="number" placeholder="Кол-во страниц..." class="pagesInput" id="pages-input">
+    <input type="number" placeholder="Кол-во страниц..." class="InputPages" id="input-pages">
+    <input type="text" placeholder="Автор..." class="inputAuthor" id="input-author">
     <button class="addButton" id="add-button">Добавить</button>
     </div>
 
-    <ul id="bookList" class="bookList" id="book-list"> <!--тут книги будут-->
+    
 
-    </ul>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Сюда JS будет добавлять карточки -->
+    <div id="container" class="cards-grid"></div>
+
+
+
+    <script src="script.js" defer></script>
 </body>
 </html>
