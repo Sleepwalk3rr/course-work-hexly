@@ -13,20 +13,47 @@ function render() {
     const card = document.createElement('div');
     card.className = 'card';
 
-    card.innerHTML = `
-      <ul>
-        <li class="nameBook">Название: ${item.name}</li>
-        <li class="pagesCount">Страниц: ${item.pages}<li>
-        <li class="authorName">Автор: ${item.author}</li>
-      </ul>
-          <select class="select">
-            <option value="Reading">Читаю</option>
-            <option value="Ended">Закончил</option>
-            <option value="Stopped">Отложил</option>
-          </select>
-      <button onclick="editItem(${index})" class="editButton">Редактировать</button>
-      <button onclick="deleteItem(${index})" class="deleteButton")">Удалить</button>
-    `;
+card.innerHTML = `
+  <div class="card-top-row">
+    <span class='cardName'><strong>Название:</strong> ${item.name}</span>
+    <span class='cardReaden'><strong>Прочитано:</strong> ${item.readPages} из ${item.pages}</span>
+    <span class='cardAuthor'><strong>Автор:</strong> ${item.author || 'Не указан'}</span>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-container" onclick="updatePages(${index})">
+    <div class="progress-bar" style="width: ${(item.readPages / item.pages) * 100}%"></div>
+    <span class="progress-text">${item.readPages || 0} / ${item.pages} стр.</span>
+  </div>
+  
+  <div class="card-bottom-row">
+    <select class="status-select" onchange="updateStatus(${index}, this.value)">
+      <option value="reading" ${item.status === 'reading' ? 'selected' : ''}>Читаю</option>
+      <option value="finished" ${item.status === 'finished' ? 'selected' : ''}>Закончил</option>
+      <option value="on-hold" ${item.status === 'on-hold' ? 'selected' : ''}>Отложил</option>
+    </select>
+  </div>
+  </div class="card-bottom">
+    <button onclick="editItem(${index})" class="editButton">Редактировать</button>
+    <button onclick="deleteItem(${index})" class="deleteButton">Удалить</button>
+  </div>
+`;
+
+window.updatePages = (index) => {
+  const newRead = prompt("Сколько страниц прочитано?", items[index].readPages || 0);
+  if (newRead !== null) {
+    const val = parseInt(newRead);
+    if (!isNaN(val) && val <= items[index].pages) {
+      items[index].readPages = val;
+      // Если прочитаны все страницы, ставим статус "Закончил"
+      if (val === items[index].pages) items[index].status = 'finished';
+      saveAndRender();
+    } else {
+      alert("Введите корректное число (не больше общего кол-ва страниц)");
+    }
+  }
+};
+
     
     container.appendChild(card);
   });
@@ -72,15 +99,25 @@ function saveAndRender() {
 // Добавление новой книги
 btn.addEventListener('click', () => {
   const name = nameInput.value.trim();
+  const author = authorInput.value.trim() || "Неизвестен"; // Берем автора из нового инпута
   const pages = parseInt(pagesInput.value);
-    const author = authorInput.value.trim();
 
-  if (name && !isNaN(pages) && author) {
-    items.push({ name: name, pages: pages, author: author });
-    saveAndRender();
+  if (name && !isNaN(pages)) {
+    // ВОТ ЭТОТ БЛОК НУЖНО ОБНОВИТЬ:
+    items.push({ 
+      name: name, 
+      author: author, 
+      pages: pages,      // общее кол-во страниц
+      readPages: 0,      // по умолчанию прочитано 0
+      status: 'reading'  // по умолчанию статус "Читаю"
+    });
+
+    saveAndRender(); // сохраняем в localStorage и перерисовываем
+
+    // Очищаем поля ввода
     nameInput.value = '';
-    pagesInput.value = '';
     authorInput.value = '';
+    pagesInput.value = '';
   } else {
     alert("Пожалуйста, введите корректное название и число страниц!");
   }
