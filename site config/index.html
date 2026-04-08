@@ -17,19 +17,32 @@
   Ваш браузер не поддерживает видео.
 </video>
     <div class="main" id="main1">   
-    <h1>Трекер чтения книг</h1>
+    <h1 class="mainText">Трекер чтения книг</h1>
     <input type="text" placeholder="Название книги..." class="inputName" id="input-name">
     <input type="number" placeholder="Кол-во страниц..." class="InputPages" id="input-pages">
     <input type="text" placeholder="Автор..." class="inputAuthor" id="input-author">
     <button class="addButton" id="add-button">Добавить</button>
     </div>
 
-    
-
+    <h1 class="BookTag">Книги</h1>
     </div>
 
     <!-- Сюда JS будет добавлять карточки -->
     <div id="container" class="cards-grid"></div>
+
+<div class="stats-outer-container">
+    <h1 class="statistic">Статистика</h1>
+    <div class="stats-container">
+        <div class="stat-card">
+            <span class="stat-label">Прочитано книг</span>
+            <span class="stat-value" id="finished-count">0</span>
+        </div>
+        <!-- Другие карточки статов... -->
+    </div>
+</div>
+
+ 
+
 
 
 

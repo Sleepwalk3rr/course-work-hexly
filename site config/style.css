@@ -101,10 +101,23 @@ input[type='file'] {
   font-style: normal;
 }
 
-h1 {
+.mainText {
     font-weight: bold;
     font-size: 64px;
     color: aliceblue;
+    font-family: inter;
+    display: flex;
+    justify-content: center;
+}
+
+
+.BookTag {
+    font-weight: bold;
+    font-size: 64px;
+    color: aliceblue;
+    font-family: inter;
+    display: flex;
+    justify-content: center;
 }
 
 input {
@@ -251,13 +264,14 @@ li {
   border-radius: 30px;
   max-width: 617px;
   height: 300px;
+  padding: 10px;
 }
 
 .progress-container {
     width: 100%;
     height: 20px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 8px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -267,7 +281,7 @@ li {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #7c7c7c 0%, #ffffff 100%); /* Голубой градиент */
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%); /* Голубой градиент */
     transition: width 0.4s ease;
 }
 
@@ -279,7 +293,7 @@ li {
     font-size: 12px;
     color: white;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-shadow: 1px 2px 2px rgb(0, 0, 0);
 }
 
 .card-top-row {
@@ -299,6 +313,7 @@ li {
   font-weight: bold;
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 
@@ -309,8 +324,93 @@ li {
 .status-select {
   border: #c3c3c3 solid 1px;
   border-radius: 5px;
+  width: stretch;
+  text-align: center;
+  height: 49px;
+  font-weight: bold;
 }
 
 .status-select option {
   color: black;
+}
+
+.cards-grid {
+  margin-top: 50px;
+}
+
+.addButton {
+  margin: 10px;
+}
+
+
+#finished-count {
+    font-weight: bold;
+    font-size: 64px;
+    color: aliceblue;
+    font-family: inter;
+    display: flex;
+    justify-content: center;
+}
+
+.stat-label {
+      font-weight: bold;
+    font-size: 64px;
+    color: aliceblue;
+    font-family: inter;
+    display: flex;
+    justify-content: center;
+}
+
+/* плавное скольжение снизу */
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Небольшой эффект всплытия снизу */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимации появления */
+
+.main {
+  opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+}
+
+.cards-grid {
+  opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+}
+
+.BookTag {
+  opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+}
+
+/* пояление плавное из космоса */
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        scale: 0.95;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.statistic {
+    font-weight: bold;
+    font-size: 64px;
+    color: aliceblue;
+    font-family: inter;
+    display: flex;
+    justify-content: center;
+      opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+    margin-top: 30px;
 }
