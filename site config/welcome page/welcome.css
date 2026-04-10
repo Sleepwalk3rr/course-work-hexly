@@ -1,0 +1,68 @@
+/* Контейнер приветствия */
+.welcome-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-family: inter;
+    opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+}
+
+.welcome-container h1 {
+    font-family: inter  ;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: fadeInPage 1.5s ease-in-out forwards;
+}
+
+/* Стилизация кнопки */
+.start-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 50px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+}
+
+.start-button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* Опускает видео под все элементы */
+  object-fit: cover; /* Чтобы видео не растягивалось, а заполняло экран */
+}   
+
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Небольшой эффект всплытия снизу */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

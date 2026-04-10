@@ -147,3 +147,24 @@ function updateStatistics() {
     // Обновляем текст на странице
     finishedCountEl.innerText = finishedBooks.length;
 }
+
+// Инициализируем массив активности (если его нет)
+let activityLog = JSON.parse(localStorage.getItem('readingActivity')) || [];
+
+// Функция для записи прогресса в статистику
+function logReading(pagesRead) {
+  const today = new Date().toLocaleDateString(); // Формат "10.04.2024"
+  
+  // Ищем, есть ли уже запись за сегодня
+  const dayIndex = activityLog.findIndex(entry => entry.date === today);
+  
+  if (dayIndex !== -1) {
+    activityLog[dayIndex].pages += pagesRead;
+  } else {
+    activityLog.push({ date: today, pages: pagesRead });
+  }
+  
+  localStorage.setItem('readingActivity', JSON.stringify(activityLog));
+  renderStats();
+}
+
