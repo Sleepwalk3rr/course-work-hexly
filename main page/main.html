@@ -30,16 +30,41 @@
     <!-- Сюда JS будет добавлять карточки -->
     <div id="container" class="cards-grid"></div>
 
-<div class="stats-outer-container">
-    <h1 class="statistic">Статистика</h1>
-    <div class="stats-container">
-        <div class="stats-card">
-            <span class="stat-label">Прочитано книг</span>
-            <span class="stat-value" id="finished-count">0</span>
+<div class="tracker-dashboard">
+    <!-- Блок целей -->
+    <div class="goals-section">
+        <div class="stat-card goal-card">
+            <span class="stat-label">Цель (стр/день)</span>
+            <input type="number" id="daily-goal-input" placeholder="0" onchange="updateGoal(this.value)">
+            <div class="goal-progress-info" id="goal-status">Цель не установлена</div>
         </div>
-        <!-- Другие карточки статов... -->
+        
+        <div class="stat-card awards-card">
+            <span class="stat-label">Ваши награды</span>
+            <div id="awards-container" class="awards-flex">
+                <!-- Сюда JS добавит иконки наград -->
+            </div>
+        </div>
     </div>
 
+    <!-- Блок цифр -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-value" id="stats-day">0</span>
+            <span class="stat-label">За сегодня</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value" id="stats-week">0</span>
+            <span class="stat-label">За неделю</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value" id="stats-month">0</span>
+            <span class="stat-label">За месяц</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value" id="finished-count">0</span>
+            <span class="stat-label">Завершено</span>
+        </div>
     </div>
 </div>
 

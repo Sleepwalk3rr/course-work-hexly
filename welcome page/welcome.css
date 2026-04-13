@@ -39,10 +39,9 @@
 }
 
 .start-button:hover {
-    background: white;
-    color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    background-color: rgb(84, 84, 84) ;
 }
 
 #bg-video {

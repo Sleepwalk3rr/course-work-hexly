@@ -121,7 +121,7 @@ input[type='file'] {
 }
 
 input {
-    border: 1px solid;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     height: 49px;
     margin: 10px;
@@ -148,13 +148,15 @@ button {
     max-width: 617px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-    border: #c3c3c3 solid 1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-color:rgba(180, 180, 180, 0.3s) ;
+    transition: 0.3s ease;
 }
 
 
 button:hover {
-    background-color: #c3c3c3;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 
@@ -210,9 +212,9 @@ ul {
     max-width: 617px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-    border: #c3c3c3 solid 1px;
-    border-color:rgba(180, 180, 180, 0.3s) ;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 150px;
+    transition: 0.3s ease;
 }
 
 .deleteButton {
@@ -225,18 +227,19 @@ ul {
     max-width: 617px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-    border: #c3c3c3 solid 1px;
-    border-color:rgba(180, 180, 180, 0.3s) ;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 150px;
+    transition: 0.3s ease;
 }
 
 .deleteButton:hover {
-      color: red;
-      transition: 0.3s;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .editButton:hover {
-  color: rgb(112, 255, 141);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .nameBook {
@@ -257,10 +260,13 @@ li {
   font-weight: bold;
   position: relative;
 }
-
+.status-select:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
 
 .card {
-  border: #c3c3c3 solid 1px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   max-width: 617px;
   height: 300px;
@@ -270,7 +276,7 @@ li {
 .progress-container {
     width: 100%;
     height: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: relative;
     overflow: hidden;
@@ -281,7 +287,8 @@ li {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%); /* Голубой градиент */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
     transition: width 0.4s ease;
 }
 
@@ -307,6 +314,7 @@ li {
   margin-top: 10px;
 }
 
+
 .card-bottom-row {
   color: #ffffff;
   font-family: inter;
@@ -322,12 +330,13 @@ li {
 }
 
 .status-select {
-  border: #c3c3c3 solid 1px;
+   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   width: stretch;
   text-align: center;
   height: 49px;
   font-weight: bold;
+  transition: 0.3s ease;
 }
 
 .status-select option {
@@ -335,7 +344,7 @@ li {
 }
 
 .cards-grid {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .addButton {
@@ -413,4 +422,126 @@ li {
       opacity: 0;
     animation: fadeInPage 1.5s ease-in-out forwards;
     margin-top: 30px;
+}
+
+.tracker-dashboard {
+    color: white;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    font-family: Inter;
+    margin-top: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+/* Стили для целей и наград */
+.goals-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#daily-goal-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    width: 250px;
+    text-align: center;
+    margin: 10px 0;
+    outline: none;
+}
+
+.awards-flex {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.award-item {
+    filter: grayscale(1);
+    opacity: 0.3;
+    animation: unlock 0.5s forwards;
+}
+
+@keyframes unlock {
+    to { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
+}
+
+
+/* медиа-запросы для адаптации */
+/* Базовый стиль для больших экранов (ПК) */
+.main h1, .BookTag {
+    font-size: 3.5rem; /* Исходный размер */
+    transition: font-size 0.3s ease;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Для планшетов (ширина экрана меньше 1024px) */
+@media (max-width: 1024px) {
+    .main h1 {
+        font-size: 2.5rem;
+    }
+    .BookTag {
+        font-size: 2.5rem;
+    }
+    
+}
+
+/* Для мобильных телефонов (ширина экрана меньше 600px) */
+@media (max-width: 600px) {
+    .main h1 {
+        font-size: 1.8rem; /* Компактный размер для смартфонов */
+        padding: 0 10px;   /* Чтобы текст не прилипал к краям */
+    }
+    
+    /* Можно также уменьшить инпуты и кнопки в main, чтобы они не вылезали */
+     .main .addButton {
+        width: 90%; 
+        font-size: 14px;
+    }
+    .stats-grid, .goals-section {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы карточки переносились на новую строку */
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    }
 }
