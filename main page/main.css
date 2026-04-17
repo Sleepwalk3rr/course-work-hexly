@@ -141,7 +141,6 @@ input {
 
 button {
     color: rgb(255, 255, 255);
-    background-color: rgba(red, green, blue, alpha);
     font-weight: bold;
     height: 49px;
     border-radius: 8px;
@@ -151,6 +150,8 @@ button {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-color:rgba(180, 180, 180, 0.3s) ;
     transition: 0.3s ease;
+    background-color: rgba(200, 200, 200, 0.005);
+    backdrop-filter: blur(3px);
 }
 
 
@@ -271,6 +272,8 @@ li {
   max-width: 617px;
   height: 300px;
   padding: 10px;
+  background-color: rgba(200, 200, 200, 0.005);
+  backdrop-filter: blur(3px);
 }
 
 .progress-container {
@@ -445,6 +448,8 @@ li {
     padding: 20px;
     text-align: center;
     transition: 0.3s;
+    background-color: rgba(200, 200, 200, 0.005s);
+    backdrop-filter: blur(3px);
 }
 
 .stat-card:hover {
